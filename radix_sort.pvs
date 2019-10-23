@@ -43,13 +43,6 @@ IMPORTING sorting, mergesort
  	(x << y AND NOT (y << x))  OR 
 	(( x << y AND y << x) AND x <= y )
 
-lex_is_total_preorder: LEMMA
-  total_preorder?[T](lex)
-
-merge_merge_merge: LEMMA
-  FORALL(l: list[T]):
-    merge_sort[T, <<](merge_sort[T, <=](l)) = merge_sort[T, lex](l)
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% Question 3  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
