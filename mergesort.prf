@@ -526,13 +526,9 @@
    ((null? adt-recognizer-decl "[list -> boolean]" list_adt nil)
     (null adt-constructor-decl "(null?)" list_adt nil)
     (append def-decl "list[T]" list_props nil)
-    (x!2 skolem-const-decl "list[T]" mergesort nil)
     (NOT const-decl "[bool -> bool]" booleans nil)
     (dichotomous? const-decl "bool" orders nil)
     (TRUE const-decl "bool" booleans nil)
-    (k skolem-const-decl
-     "below[length(cons(car(x!2), merge(x!1, cdr(x!2))))]" mergesort
-     nil)
     (nnint_plus_posint_is_posint application-judgement "posint"
      integers nil)
     (cons? adt-recognizer-decl "[list -> boolean]" list_adt nil)
@@ -545,7 +541,6 @@
      real_props nil)
     (real_lt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
-    (x!1 skolem-const-decl "list[T]" mergesort nil)
     (posint_plus_nnint_is_posint application-judgement "posint"
      integers nil)
     (nth def-decl "T" list_props nil)
@@ -1171,8 +1166,301 @@
     (pred type-eq-decl nil defined_types nil))
    shostak))
  (merge_sort_is_permutation 0
+  (Prova_definitiva_oscar "resolveu-:DD" 3780146944
+   ("" (measure-induct "length (l)" "l")
+    (("" (skeep)
+      (("" (expand "merge_sort" 1)
+        (("" (lift-if)
+          (("" (prop)
+            (("1" (expand "permutations" 1) (("1" (propax) nil nil))
+              nil)
+             ("2" (lemma "merge_occurrence")
+              (("2" (expand "permutations")
+                (("2" (skeep)
+                  (("2" (inst? -1)
+                    (("2" (replaces)
+                      (("2"
+                        (inst-cp -1 "prefix(x, floor(length(x) / 2))")
+                        (("2" (split)
+                          (("1" (inst? -1)
+                            (("1" (replaces)
+                              (("1"
+                                (inst-cp
+                                 -1
+                                 "suffix(x, floor(length(x) / 2))")
+                                (("1"
+                                  (split)
+                                  (("1"
+                                    (inst? -1)
+                                    (("1"
+                                      (replaces)
+                                      (("1"
+                                        (lemma "merge_occurrence")
+                                        (("1"
+                                          (inst? -1)
+                                          (("1"
+                                            (replace -1 2 RL)
+                                            (("1"
+                                              (hide -1)
+                                              (("1"
+                                                (lemma
+                                                 "merge_is_permutation")
+                                                (("1"
+                                                  (expand
+                                                   "permutations")
+                                                  (("1"
+                                                    (inst? -1)
+                                                    (("1"
+                                                      (replaces)
+                                                      (("1"
+                                                        (lemma
+                                                         "app_prefix_suffix")
+                                                        (("1"
+                                                          (inst? -1)
+                                                          (("1"
+                                                            (replace
+                                                             -1
+                                                             2
+                                                             RL)
+                                                            (("1"
+                                                              (propax)
+                                                              nil
+                                                              nil))
+                                                            nil))
+                                                          nil))
+                                                        nil))
+                                                      nil))
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil)
+                                   ("2"
+                                    (lemma "length_suffix")
+                                    (("2"
+                                      (inst? -1)
+                                      (("2"
+                                        (replaces -1 1)
+                                        (("2" (assert) nil nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil))
+                            nil)
+                           ("2" (lemma "length_prefix")
+                            (("2" (inst? -1)
+                              (("2"
+                                (replaces)
+                                (("2" (assert) nil nil))
+                                nil))
+                              nil))
+                            nil))
+                          nil))
+                        nil))
+                      nil))
+                    nil))
+                  nil))
+                nil))
+              nil))
+            nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   nil shostak)
+  (merge_sort_is_permutation-2 "NOVA IDEIA" 3780072777
+   ("" (measure-induct "length (l)" "l")
+    (("" (skeep)
+      (("" (expand "merge_sort" 1)
+        (("" (lift-if)
+          (("" (prop)
+            (("1" (postpone) nil nil)
+             ("2" (inst-cp -1 "prefix(x, floor(length(x) /2))")
+              (("2" (split)
+                (("1" (inst-cp -2 "(suffix(x, floor(length(x) / 2)))")
+                  (("1" (split)
+                    (("1" (lemma "merge_is_permutation")
+                      (("1" (inst? -1)
+                        (("1" (expand "permutations" -3)
+                          (("1" (expand "permutations" 2)
+                            (("1" (skeep)
+                              (("1"
+                                (inst? -3)
+                                (("1"
+                                  (lemma "merge_occurrence")
+                                  (("1"
+                                    (inst? -1)
+                                    (("1"
+                                      (replaces -1 2)
+                                      (("1"
+                                        (replace -3)
+                                        (("1"
+                                          (expand "permutations" -2)
+                                          (("1"
+                                            (inst? -2)
+                                            (("1"
+                                              (replace -2 2)
+                                              (("1"
+                                                (lemma
+                                                 "merge_occurrence")
+                                                (("1"
+                                                  (inst? -1)
+                                                  (("1"
+                                                    (replace -1 2 RL)
+                                                    (("1"
+                                                      (hide -2)
+                                                      (("1"
+                                                        (lemma
+                                                         "merge_is_permutation")
+                                                        (("1"
+                                                          (inst? -1)
+                                                          (("1"
+                                                            (expand
+                                                             "permutations"
+                                                             -1)
+                                                            (("1"
+                                                              (inst?
+                                                               -1)
+                                                              (("1"
+                                                                (replace
+                                                                 -1
+                                                                 2)
+                                                                (("1"
+                                                                  (lemma
+                                                                   "app_prefix_suffix")
+                                                                  (("1"
+                                                                    (inst?
+                                                                     -1)
+                                                                    (("1"
+                                                                      (replace
+                                                                       -1
+                                                                       2
+                                                                       RL)
+                                                                      (("1"
+                                                                        (propax)
+                                                                        nil
+                                                                        nil))
+                                                                      nil))
+                                                                    nil))
+                                                                  nil))
+                                                                nil))
+                                                              nil))
+                                                            nil))
+                                                          nil))
+                                                        nil))
+                                                      nil))
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil))
+                            nil))
+                          nil))
+                        nil))
+                      nil)
+                     ("2" (postpone) nil nil))
+                    nil))
+                  nil)
+                 ("2" (postpone) nil nil))
+                nil))
+              nil))
+            nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   ((merge_occurrence formula-decl nil mergesort nil)
+    (app_prefix_suffix formula-decl nil sorting_aux nil)
+    (merge_is_permutation formula-decl nil mergesort nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (length_suffix formula-decl nil sorting_aux nil)
+    (length_prefix formula-decl nil sorting_aux nil)
+    (suffix def-decl "list[T]" sorting_aux nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/= const-decl "boolean" notequal nil)
+    (floor const-decl "{i | i <= x & x < i + 1}" floor_ceil nil)
+    (<= const-decl "bool" reals nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (integer nonempty-type-from-decl nil integers nil)
+    (prefix def-decl "list[T]" sorting_aux nil)
+    (below type-eq-decl nil nat_types nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
+     rationals nil)
+    (nonneg_floor_is_nat application-judgement "nat" floor_ceil nil)
+    (permutations const-decl "bool" sorting_aux nil)
+    (merge_sort def-decl "list[T]" mergesort nil)
+    (wf_nat formula-decl nil naturalnumbers nil)
+    (< const-decl "bool" reals nil)
+    (length def-decl "nat" list_props nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (naturalnumber type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (list type-decl nil list_adt nil)
+    (T formal-type-decl nil mergesort nil)
+    (measure_induction formula-decl nil measure_induction nil)
+    (well_founded? const-decl "bool" orders nil)
+    (pred type-eq-decl nil defined_types nil))
+   shostak)
   (merge_sort_is_permutation-1 nil 3589041194
-   ("" (induct "l") (("1" (postpone) nil nil) ("2" (postpone) nil nil))
+   ("" (induct "l")
+    (("1" (expand "merge_sort")
+      (("1" (expand "length")
+        (("1" (expand "permutations") (("1" (propax) nil nil)) nil))
+        nil))
+      nil)
+     ("2" (skeep)
+      (("2" (case "cons2_var = null")
+        (("1" (replaces)
+          (("1" (expand "merge_sort" 1)
+            (("1" (expand "length")
+              (("1" (expand "length")
+                (("1" (expand "permutations") (("1" (propax) nil nil))
+                  nil))
+                nil))
+              nil))
+            nil))
+          nil)
+         ("2" (expand "permutations" 2)
+          (("2" (skeep)
+            (("2" (expand "permutations")
+              (("2" (inst -1 "x") (("2" (postpone) nil nil)) nil))
+              nil))
+            nil))
+          nil))
+        nil))
+      nil))
     nil)
    ((nnrat_div_posrat_is_nnrat application-judgement "nonneg_rat"
      rationals nil)
