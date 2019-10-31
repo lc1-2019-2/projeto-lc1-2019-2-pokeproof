@@ -180,5 +180,105 @@
     (total_preorder? const-decl "bool" total_preorder nil)
     (<< formal-const-decl "(total_preorder?[T])" radix_sort nil)
     (<= formal-const-decl "(total_preorder?[T])" radix_sort nil))
-   nil)))
+   nil))
+ (radixsort_sorts 0
+  (radixsort_sorts-1 nil 3781447234
+   ("" (expand "radixsort")
+    (("" (expand "is_sorted?")
+      (("" (skeep)
+        (("" (skeep)
+          (("" (expand "lex")
+            (("" (flatten)
+              (("" (lemma "merge_sort_is_sorted[T, <<]")
+                (("" (expand "is_sorted?")
+                  (("" (inst -1 "merge_sort[T, <=](l)")
+                    (("" (inst? -1)
+                      (("" (assert)
+                        ((""
+                          (lemma "merge_sort_is_conservative[T, <<]")
+                          (("" (inst? -1)
+                            (("" (assert)
+                              ((""
+                                (skeep)
+                                ((""
+                                  (replaces)
+                                  ((""
+                                    (lemma
+                                     "is_sorted_implies_monotone[T, <=]")
+                                    ((""
+                                      (inst-cp
+                                       -1
+                                       "merge_sort[T, <=](l)")
+                                      ((""
+                                        (lemma
+                                         "merge_sort_is_sorted[T, <=]")
+                                        ((""
+                                          (inst? -1)
+                                          ((""
+                                            (assert)
+                                            ((""
+                                              (inst -3 "j" "i")
+                                              nil
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil))
+                            nil))
+                          nil))
+                        nil))
+                      nil))
+                    nil))
+                  nil))
+                nil))
+              nil))
+            nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   ((is_sorted? const-decl "bool" sorting nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (< const-decl "bool" reals nil)
+    (length def-decl "nat" list_props nil)
+    (below type-eq-decl nil nat_types nil)
+    (merge_sort_is_conservative formula-decl nil mergesort nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (is_sorted_implies_monotone formula-decl nil sorting nil)
+    (+ const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (posint_plus_nnint_is_posint application-judgement "posint"
+     integers nil)
+    (merge_sort def-decl "list[T]" mergesort nil)
+    (<= formal-const-decl "(total_preorder?[T])" radix_sort nil)
+    (list type-decl nil list_adt nil)
+    (merge_sort_is_sorted formula-decl nil mergesort nil)
+    (T formal-type-decl nil radix_sort nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (PRED type-eq-decl nil defined_types nil)
+    (total_preorder? const-decl "bool" total_preorder nil)
+    (<< formal-const-decl "(total_preorder?[T])" radix_sort nil)
+    (lex const-decl "bool" radix_sort nil)
+    (radixsort const-decl "list[T]" radix_sort nil))
+   shostak)))
 
