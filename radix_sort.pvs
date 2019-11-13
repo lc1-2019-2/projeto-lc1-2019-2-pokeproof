@@ -48,7 +48,7 @@ IMPORTING sorting, mergesort
 %%%%% Question 3  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% The third question conjectures that radixsor inded sort.  %%%
 %%%%% Its proof is given though use of properties of the        %%%
-%%%%% mergesort algorithm, including an assumption on stability.%%%                                  
+%%%%% mergesort algorithm, including aen assumption on stability.%%%                                  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
